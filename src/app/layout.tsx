@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`w-full min-h-screen bg-light ${montserrat.className}`}>
+      <body className={`w-full min-h-screen bg-themeLight ${montserrat.className}`}>
         <Navbar />
         {children}
         <Footer />

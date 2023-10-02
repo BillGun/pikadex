@@ -1,4 +1,6 @@
-const BASE_URL = process.env.BASE_API + "/pokemon"
+import { API_URL } from "./constant";
+
+const BASE_URL = API_URL + "/pokemon";
 
 export const pokemonGet = async (offset = 0, limit = 24) => {
   const res = await fetch(`${BASE_URL}/?limit=${limit}&offset=${offset}`)

@@ -10,6 +10,7 @@ export const List = async () => {
   const list = await pokemonGet().then(res => {
     return res['results'];
   });
+
   return (
     <div className="w-full flex flex-row flex-wrap justify-between">
       {list.map((data: PokemonList, i: number) => {
