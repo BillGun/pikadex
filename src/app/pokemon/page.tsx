@@ -1,7 +1,7 @@
-'use client'
+// 'use client'
 
 import { List } from "@/components/List";
-import { MouseEventHandler, useState } from "react";
+import { MouseEventHandler } from "react";
 
 const Button = ({ text, region, onClick }: { text: string, region: string, onClick: MouseEventHandler<HTMLButtonElement> }) => {
   return (
@@ -14,20 +14,20 @@ const Button = ({ text, region, onClick }: { text: string, region: string, onCli
 }
 
 const Page = () => {
-  const [region, setRegion] = useState('');
+  // const [region, setRegion] = useState('');
 
-  const handleClick = (text = '') => {
-    if (region === text) {
-      setRegion('');
-      return;
-    }
-    setRegion(text);
-  }
+  // const handleClick = (text = '') => {
+  //   if (region === text) {
+  //     setRegion('');
+  //     return;
+  //   }
+  //   setRegion(text);
+  // }
 
   return (
     <div>
       <h1>Gotta Catch&apos;em All</h1>
-      <div>
+      {/* <div>
         <Button text="Kanto" onClick={() => handleClick("Kanto")} region={region} />
         <Button text="Johto" onClick={() => handleClick("Johto")} region={region} />
         <Button text="Hoenn" onClick={() => handleClick("Hoenn")} region={region} />
@@ -38,7 +38,7 @@ const Page = () => {
         <Button text="Galar" onClick={() => handleClick("Galar")} region={region} />
         <Button text="Hisui" onClick={() => handleClick("Hisui")} region={region} />
         <Button text="Paldea" onClick={() => handleClick("Paldea")} region={region} />
-      </div>
+      </div> */}
       <List />
     </div >
   )
