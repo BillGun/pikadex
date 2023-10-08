@@ -9,7 +9,7 @@ const CustomLink = ({ href = '/', title = '', className = '' }) => {
   return (
     <Link href={href} className={`${className} relative group`}>
       {title}
-      <span className={`h-[1px] inline-block bg-dark absolute left-0 -bottom-0.5 
+      <span className={`h-[1px] inline-block bg-themeDark absolute left-0 -bottom-0.5 
       group-hover:w-full transition-[width] ease duration-300 ${pathname === href ? 'w-full' : 'w-0'}`}>
         &nbsp;
       </span>
@@ -19,7 +19,7 @@ const CustomLink = ({ href = '/', title = '', className = '' }) => {
 
 export const Navbar = () => {
   return (
-    <header className="w-full flex items-start px-32 py-8 font-medium justify-between">
+    <header className="w-full flex items-start px-32 pt-6 pb-4 font-medium justify-between border-b-2 border-themeDark">
       <div className="w-full flex items-center justify-start">
         <Link href={"/"} className="flex">
           <PokeballColorIcon />

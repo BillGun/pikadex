@@ -5,7 +5,7 @@ export default function Layout({
   className?: string
 }) {
   return (
-    <main className={`w-full h-full inline-block bg-light p-32 ${className}`}>
+    <main className={`w-full h-full inline-block bg-themeLight p-32 ${className}`}>
       {children}
     </main>
   )
