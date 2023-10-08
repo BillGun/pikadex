@@ -23,7 +23,7 @@ const CustomImage = ({ id, name, imageType }: { id: number, name: string, imageT
     <Image
       className="bg-themeDark w-1/2"
       src={getCustomUrl(imageType, id)}
-      alt={name}
+      alt={`${name} sprite`}
       width={96}
       height={96}
     />

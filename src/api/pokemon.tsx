@@ -2,7 +2,7 @@ import { API_URL } from "./constant";
 
 const BASE_URL = API_URL + "/pokemon";
 
-export const pokemonGet = async (offset = 0, limit = 24) => {
+export const pokemonGet = async ({ offset = 0, limit = 24 }: { offset: number, limit?: number }) => {
   const res = await fetch(`${BASE_URL}/?limit=${limit}&offset=${offset}`)
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.

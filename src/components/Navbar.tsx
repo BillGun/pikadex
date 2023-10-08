@@ -19,7 +19,7 @@ const CustomLink = ({ href = '/', title = '', className = '' }) => {
 
 export const Navbar = () => {
   return (
-    <header className="w-full flex items-start px-32 py-8 font-medium justify-between">
+    <header className="w-full flex items-start px-32 pt-6 pb-4 font-medium justify-between border-b-2 border-themeDark">
       <div className="w-full flex items-center justify-start">
         <Link href={"/"} className="flex">
           <PokeballColorIcon />

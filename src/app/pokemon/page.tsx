@@ -1,5 +1,6 @@
 // 'use client'
 
+import { pokemonGet } from "@/api/pokemon";
 import { List } from "@/components/List";
 import { MouseEventHandler } from "react";
 
@@ -13,7 +14,7 @@ const Button = ({ text, region, onClick }: { text: string, region: string, onCli
   )
 }
 
-const Page = () => {
+const Page = async () => {
   // const [region, setRegion] = useState('');
 
   // const handleClick = (text = '') => {
@@ -22,7 +23,10 @@ const Page = () => {
   //     return;
   //   }
   //   setRegion(text);
-  // }
+  const list = await pokemonGet({ offset: 0 }).then(res => {
+    return res['results'];
+  });
+
 
   return (
     <div>
@@ -39,7 +43,7 @@ const Page = () => {
         <Button text="Hisui" onClick={() => handleClick("Hisui")} region={region} />
         <Button text="Paldea" onClick={() => handleClick("Paldea")} region={region} />
       </div> */}
-      <List />
+      <List initialList={list} />
     </div >
   )
 }
