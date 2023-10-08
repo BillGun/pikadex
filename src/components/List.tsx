@@ -17,24 +17,24 @@ export const List = ({ initialList }: { initialList: PokemonList[] }) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref);
 
-  async function loadMorePokemon() {
-    const next = offset + 24
-    const movies = await pokemonGet({ offset: next }).then((res) => {
-      if (res.results.length) {
-        setOffset(next)
-        setList((prev: PokemonList[] | undefined) => [
-          ...(prev?.length ? prev : []),
-          ...res.results
-        ])
-      }
-    });
-  }
-
   useEffect(() => {
+    async function loadMorePokemon() {
+      const next = offset + 24
+      const movies = await pokemonGet({ offset: next }).then((res) => {
+        if (res.results.length) {
+          setOffset(next)
+          setList((prev: PokemonList[] | undefined) => [
+            ...(prev?.length ? prev : []),
+            ...res.results
+          ])
+        }
+      });
+    }
+
     if (isInView) {
       loadMorePokemon()
     }
-  }, [isInView])
+  }, [isInView, offset])
 
   return (
     <>

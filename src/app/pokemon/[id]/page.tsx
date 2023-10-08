@@ -1,11 +1,10 @@
-import { Pokemon, PokemonSpecies } from "@/api/constant";
-import { pokemonGetById } from "@/api/pokemon";
+import { Pokemon, PokemonGenericObject, PokemonSpecies } from "@/api/constant";
+import { pokemonGet, pokemonGetById } from "@/api/pokemon";
 import { pokemonSpeciesGetByPokemon } from "@/api/pokemon-species";
 import Layout from "@/components/Layout";
 import { LeftArrowIcon } from "@/components/LeftArrowIcon";
 import { PokemonSprite } from "@/components/PokemonSprite";
 import { RightArrowIcon } from "@/components/RightArrowIcon";
-
 
 const pokemonBgVariants: { [index: string]: any } = {
   normal: 'bg-normal',
@@ -26,6 +25,20 @@ const pokemonBgVariants: { [index: string]: any } = {
   dark: 'bg-dark',
   steel: 'bg-steel',
   fairy: 'bg-fairy',
+}
+
+export async function generateStaticParams() {
+  const list = await pokemonGet({ offset: 0 }).then(res => {
+    return res['results'];
+  });
+
+  return list.map((data: PokemonGenericObject) => {
+    const urlArray = data.url.split("/");
+    const id = urlArray[urlArray.length - 2];
+    return ({
+      id,
+    })
+  })
 }
 
 const Page = async ({ params }: { params: { id: string } }) => {
