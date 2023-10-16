@@ -34,8 +34,10 @@ export async function generateStaticParams() {
   });
 
   return list.map((data: PokemonGenericObject) => {
+    const urlArray = data.url.split("/");
+    const id = urlArray[urlArray.length - 2];
     return {
-      id: `${data.name}-berry`,
+      id,
     };
   });
 }
