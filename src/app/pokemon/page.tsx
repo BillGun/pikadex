@@ -1,18 +1,36 @@
 // 'use client'
 
 import { pokemonGet } from "@/api/pokemon";
-import { List } from "@/components/List";
+import { List } from "@/components/Pokemon/List";
+import { Metadata } from "next";
 import { MouseEventHandler } from "react";
 
-const Button = ({ text, region, onClick }: { text: string, region: string, onClick: MouseEventHandler<HTMLButtonElement> }) => {
+export const metadata: Metadata = {
+  title: "Pokemon | Pikadex",
+};
+
+const Button = ({
+  text,
+  region,
+  onClick,
+}: {
+  text: string;
+  region: string;
+  onClick: MouseEventHandler<HTMLButtonElement>;
+}) => {
   return (
     <button
-      className={`ml-4 px-4 py-0.5 text-lg font-medium capitalize rounded-lg border-2 border-themeDark ${region === text ? "text-themeLight bg-themeDark" : "text-themeDark bg-themeLight"}`}
-      onClick={onClick}>
+      className={`ml-4 rounded-lg border-2 border-themeDark px-4 py-0.5 text-lg font-medium capitalize ${
+        region === text
+          ? "bg-themeDark text-themeLight"
+          : "bg-themeLight text-themeDark"
+      }`}
+      onClick={onClick}
+    >
       {text}
     </button>
-  )
-}
+  );
+};
 
 const Page = async () => {
   // const [region, setRegion] = useState('');
@@ -23,14 +41,19 @@ const Page = async () => {
   //     return;
   //   }
   //   setRegion(text);
-  const list = await pokemonGet({ offset: 0 }).then(res => {
-    return res['results'];
+  const list = await pokemonGet({ offset: 0 }).then((res) => {
+    return res["results"];
   });
-
 
   return (
     <div>
-      <h1>Gotta Catch&apos;em All</h1>
+      <p>
+        Pokémon are the creatures that inhabit the world of the Pokémon games.
+        They can be caught using Pokéballs and trained by battling with other
+        Pokémon. Each Pokémon belongs to a specific species but may take on a
+        variant which makes it differ from other Pokémon of the same species,
+        such as base stats, available abilities and typings.
+      </p>
       {/* <div>
         <Button text="Kanto" onClick={() => handleClick("Kanto")} region={region} />
         <Button text="Johto" onClick={() => handleClick("Johto")} region={region} />
@@ -44,7 +67,7 @@ const Page = async () => {
         <Button text="Paldea" onClick={() => handleClick("Paldea")} region={region} />
       </div> */}
       <List initialList={list} />
-    </div >
-  )
-}
-export default Page
+    </div>
+  );
+};
+export default Page;
