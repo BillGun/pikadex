@@ -8,7 +8,9 @@ export default function Footer() {
       <Layout className="py-6 flex items-center justify-between xl:py-6 md:flex-col md:py-4 sm:py-2">
         <span>{new Date().getFullYear()} &copy; All Rights Reserved</span>
         <div className="flex items-center">
-          Build with <span className="text-primary dark:text-primaryDark text-2xl px-1">&#9825;</span> by&nbsp;<Link href="">Me</Link>
+          Build with{" "}
+          <span className="text-primaryDark text-2xl px-1">&#9825;</span>{" "}
+          by&nbsp;<Link href="">Me</Link>
         </div>
         <div className="flex items-center">
           <ReactIcon />
@@ -17,5 +19,5 @@ export default function Footer() {
         </div>
       </Layout>
     </footer>
-  )
+  );
 }
