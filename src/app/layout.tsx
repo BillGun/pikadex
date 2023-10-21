@@ -8,7 +8,7 @@ const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Pikadex",
-  description: "Your one stop pokemon information!",
+  description: "Your one stop Pokémon information!",
   metadataBase: new URL(process.env.METADATA_BASE || ""),
 };
 

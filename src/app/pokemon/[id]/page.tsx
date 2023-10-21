@@ -1,8 +1,8 @@
 import {
   Pokemon,
+  PokemonBgVariants,
   PokemonGenericObject,
   PokemonSpecies,
-  pokemonBgVariants,
 } from "@/api/constant";
 import { pokemonGet, pokemonGetById } from "@/api/pokemon";
 import { pokemonSpeciesGetByPokemon } from "@/api/pokemon-species";
@@ -43,8 +43,8 @@ const Page = async ({ params }: { params: { id: string } }) => {
   return (
     <main className="flex w-full flex-col items-center justify-center ">
       <Layout className="!py-16 ">
-        <div className="border-themeSoftDark grid w-full grid-cols-8 items-center justify-between gap-y-0 rounded-2xl border-2 bg-primary">
-          <div className="border-themeSoftDark col-span-8 flex w-full justify-between border-b-2 px-8 py-3">
+        <div className="grid w-full grid-cols-8 items-center justify-between gap-y-0 rounded-2xl border-2 border-themeSoftDark bg-primary">
+          <div className="col-span-8 flex w-full justify-between border-b-2 border-themeSoftDark px-8 py-3">
             <h4 className="text-xl font-semibold">
               #{data.id} <span className="capitalize">{data.name},</span>{" "}
               {species.genera.find((i) => i.language.name === "en")?.genus}
@@ -55,7 +55,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
                 return (
                   <div
                     key={i}
-                    className={`mx-0.5 rounded-md px-2 py-1 text-center font-semibold uppercase ${pokemonBgVariants[pokemonType]} `}
+                    className={`mx-0.5 rounded-md px-2 py-1 text-center font-semibold uppercase ${PokemonBgVariants[pokemonType]} `}
                   >
                     <p>{pokemonType}</p>
                   </div>
@@ -66,7 +66,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
           <div className="relative col-span-3 m-4 flex flex-wrap bg-themeLight p-4">
             <PokemonSprite name={data.name} id={data.id} />
           </div>
-          <div className="border-themeSoftDark col-span-5 border-l-2 px-8 py-4">
+          <div className="col-span-5 border-l-2 border-themeSoftDark px-8 py-4">
             <div className="w-full pb-2 pt-2">
               <p>
                 {
@@ -117,7 +117,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
                         <span className="w-1/5 text-right">{baseStat} </span>
                       </div>
                       <div
-                        className={`bg-themeSoftDark min-h-full`}
+                        className={`min-h-full bg-themeSoftDark`}
                         style={{ width: barWidth }}
                       />
                     </div>

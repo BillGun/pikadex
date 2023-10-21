@@ -29,7 +29,7 @@ export default function Home() {
             <p>What are you looking for today?</p>
             <div className="flex w-full flex-wrap justify-evenly">
               <Card
-                name={"Pokemon"}
+                name={"Pokémon"}
                 image={
                   "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/35.png"
                 }
@@ -45,11 +45,11 @@ export default function Home() {
                 className="!w-1/4"
               />
               <Card
-                name={"Items"}
+                name={"Item"}
                 image={
                   "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/master-ball.png"
                 }
-                href={"/items"}
+                href={"/item"}
                 className="!w-1/4"
               />
             </div>

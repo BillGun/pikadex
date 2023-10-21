@@ -30,9 +30,9 @@ export const Navbar = () => {
           <p>Pikadex</p>
         </Link>
         <nav>
-          <CustomLink href={"/pokemon"} title="Pokemon" className="ml-4" />
+          <CustomLink href={"/pokemon"} title="Pokémon" className="ml-4" />
           <CustomLink href={"/berry"} title="Berries" className="mx-4" />
-          <CustomLink href={"/items"} title="Items" className="mr-4" />
+          <CustomLink href={"/item"} title="Item" className="mr-4" />
         </nav>
       </div>
     </header>

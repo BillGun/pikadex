@@ -5,7 +5,7 @@ import { PokemonGenericObject } from "@/api/constant";
 import { useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Card } from "../Card";
-import { Spinner } from "../Icons";
+import { Spinner } from "../Spinner";
 
 export const BerryList = ({
   initialList,
@@ -61,12 +61,8 @@ export const BerryList = ({
       {isAllData ? (
         ""
       ) : (
-        <div
-          ref={ref}
-          className="col-span-1 mt-16 flex w-[64px] items-center justify-center lg:col-span-4 md:col-span-3 sm:col-span-2"
-        >
-          <Spinner />
-          <span className="sr-only">Loading...</span>
+        <div ref={ref}>
+          <Spinner ref={ref} />
         </div>
       )}
     </>
