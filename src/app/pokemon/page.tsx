@@ -6,7 +6,7 @@ import { Metadata } from "next";
 import { MouseEventHandler } from "react";
 
 export const metadata: Metadata = {
-  title: "Pokemon | Pikadex",
+  title: "Pokemon",
 };
 
 const Button = ({

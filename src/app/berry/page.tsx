@@ -3,7 +3,7 @@ import { BerryList } from "@/components/Berry/List";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Berry | Pikadex",
+  title: "Berry",
 };
 
 const Page = async () => {

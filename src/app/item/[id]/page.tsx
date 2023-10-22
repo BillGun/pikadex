@@ -24,7 +24,7 @@ export async function generateMetadata(
   });
 
   return {
-    title: `${name}| Pikadex`,
+    title: `${name}`,
     openGraph: {
       images: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${item.name}.png`,
     },

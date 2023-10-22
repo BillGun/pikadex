@@ -3,7 +3,7 @@ import { ItemList } from "@/components/Item/List";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Item | Pikadex",
+  title: "Item",
 };
 
 const Page = async () => {

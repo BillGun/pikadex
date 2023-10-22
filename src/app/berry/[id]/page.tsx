@@ -19,9 +19,7 @@ export async function generateMetadata(
   });
 
   return {
-    title: `${berry.name[0].toUpperCase()}${berry.name.slice(
-      1,
-    )} Berry | Pikadex`,
+    title: `${berry.name[0].toUpperCase()}${berry.name.slice(1)} Berry`,
     openGraph: {
       images: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${berry.name}-berry.png`,
     },

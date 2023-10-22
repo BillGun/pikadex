@@ -1,12 +1,7 @@
 import { Card } from "@/components/Card";
 import Layout from "@/components/Layout";
 import pikachuPic from "@/image/pikachu.png";
-import { Metadata } from "next";
 import Image from "next/image";
-
-export const metadata: Metadata = {
-  title: "Home | Pikadex",
-};
 
 export default function Home() {
   return (

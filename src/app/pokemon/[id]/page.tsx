@@ -8,8 +8,35 @@ import { pokemonGet, pokemonGetById } from "@/api/pokemon";
 import { pokemonSpeciesGetByPokemon } from "@/api/pokemon-species";
 import Layout from "@/components/Layout";
 import { LeftArrowIcon } from "@/components/LeftArrowIcon";
-import { PokemonSprite } from "@/components/PokemonSprite";
+import { PokemonSprite } from "@/components/Pokemon/PokemonSprite";
 import { RightArrowIcon } from "@/components/RightArrowIcon";
+import { Metadata, ResolvingMetadata } from "next";
+
+export async function generateMetadata(
+  { params }: { params: { id: string } },
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  // read route params
+  const id = params.id;
+
+  // fetch data
+  const data: Pokemon = await pokemonGetById(Number(params.id)).then((res) => {
+    return res;
+  });
+
+  const nameArr = data.name.split("-");
+  let name = "";
+  nameArr.forEach((element) => {
+    name += `${element[0].toUpperCase()}${element.slice(1)} `;
+  });
+
+  return {
+    title: `${name}`,
+    openGraph: {
+      images: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`,
+    },
+  };
+}
 
 export async function generateStaticParams() {
   const list = await pokemonGet({ offset: 0 }).then((res) => {
