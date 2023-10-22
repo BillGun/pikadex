@@ -50,7 +50,7 @@ export const BerryList = ({
           const id = urlArray[urlArray.length - 2];
           return (
             <Card
-              name={data.name}
+              name={`${data.name} Berry`}
               image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${data.name}-berry.png`}
               href={`/berry/${id}`}
               key={i}

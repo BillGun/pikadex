@@ -12,7 +12,7 @@ const CustomLink = ({ href = "/", title = "", className = "" }) => {
       <span
         className={`ease absolute -bottom-0.5 left-0 inline-block h-[1px] 
       bg-themeDark transition-[width] duration-300 group-hover:w-full ${
-        pathname === href ? "w-full" : "w-0"
+        pathname.includes(href) ? "w-full" : "w-0"
       }`}
       >
         &nbsp;
