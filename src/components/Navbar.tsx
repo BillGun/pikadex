@@ -12,7 +12,7 @@ const CustomLink = ({ href = "/", title = "", className = "" }) => {
       <span
         className={`ease absolute -bottom-0.5 left-0 inline-block h-[1px] 
       bg-themeDark transition-[width] duration-300 group-hover:w-full ${
-        pathname === href ? "w-full" : "w-0"
+        pathname.includes(href) ? "w-full" : "w-0"
       }`}
       >
         &nbsp;
@@ -30,9 +30,9 @@ export const Navbar = () => {
           <p>Pikadex</p>
         </Link>
         <nav>
-          <CustomLink href={"/pokemon"} title="Pokemon" className="ml-4" />
+          <CustomLink href={"/pokemon"} title="Pokémon" className="ml-4" />
           <CustomLink href={"/berry"} title="Berries" className="mx-4" />
-          <CustomLink href={"/items"} title="Items" className="mr-4" />
+          <CustomLink href={"/item"} title="Item" className="mr-4" />
         </nav>
       </div>
     </header>

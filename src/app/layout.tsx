@@ -7,9 +7,30 @@ import "./globals.css";
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Pikadex",
-  description: "Your one stop pokemon information!",
+  title: {
+    template: "%s | Pikadex",
+    default: "Pikadex",
+  },
+  description: "Your one stop Pokémon information!",
+  generator: "Next.js",
+  creator: "BillGun",
+  authors: [{ name: "BillGun", url: "https://github.com/BillGun" }],
+  applicationName: "Pikadex",
+  keywords: [
+    "Pokemon",
+    "Pokémon",
+    "Pokédex",
+    "Pokedex",
+    "Next.js",
+    "Tailwind",
+    "Typescript",
+  ],
   metadataBase: new URL(process.env.METADATA_BASE || ""),
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
 };
 
 export default function RootLayout({

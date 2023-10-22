@@ -1,17 +1,17 @@
 "use client";
 
+import { PokemonGenericObject } from "@/api/constant";
 import { pokemonGet } from "@/api/pokemon";
 import { useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Card } from "../Card";
-import { Spinner } from "../Icons";
+import { Spinner } from "../Spinner";
 
-interface PokemonList {
-  name: string;
-  url: string;
-}
-
-export const List = ({ initialList }: { initialList: PokemonList[] }) => {
+export const List = ({
+  initialList,
+}: {
+  initialList: PokemonGenericObject[];
+}) => {
   const [list, setList] = useState(initialList);
   const [offset, setOffset] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -23,7 +23,7 @@ export const List = ({ initialList }: { initialList: PokemonList[] }) => {
       const list = await pokemonGet({ offset: next }).then((res) => {
         if (res.results.length) {
           setOffset(next);
-          setList((prev: PokemonList[] | undefined) => [
+          setList((prev: PokemonGenericObject[] | undefined) => [
             ...(prev?.length ? prev : []),
             ...res.results,
           ]);
@@ -39,7 +39,7 @@ export const List = ({ initialList }: { initialList: PokemonList[] }) => {
   return (
     <>
       <div className="flex w-full flex-row flex-wrap justify-between">
-        {list.map((data: PokemonList, i: number) => {
+        {list.map((data: PokemonGenericObject, i: number) => {
           const urlArray = data.url.split("/");
           const id = urlArray[urlArray.length - 2];
           return (
@@ -52,12 +52,8 @@ export const List = ({ initialList }: { initialList: PokemonList[] }) => {
           );
         })}
       </div>
-      <div
-        ref={ref}
-        className="col-span-1 mt-16 flex w-[64px] items-center justify-center lg:col-span-4 md:col-span-3 sm:col-span-2"
-      >
-        <Spinner />
-        <span className="sr-only">Loading...</span>
+      <div ref={ref}>
+        <Spinner ref={ref} />
       </div>
     </>
   );

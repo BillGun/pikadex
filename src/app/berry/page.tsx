@@ -3,7 +3,7 @@ import { BerryList } from "@/components/Berry/List";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Berry | Pikadex",
+  title: "Berry",
 };
 
 const Page = async () => {
@@ -13,11 +13,11 @@ const Page = async () => {
 
   return (
     <div>
-      <p>
+      <div className="m-4 rounded-xl border-2 border-themeSoftDark bg-primary/50 p-4 shadow-custom">
         Berries are small fruits that can provide HP and status condition
         restoration, stat enhancement, and even damage negation when eaten by
         Pokémon.
-      </p>
+      </div>
       <BerryList initialList={list} />
     </div>
   );

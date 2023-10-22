@@ -1,15 +1,42 @@
 import {
   Pokemon,
+  PokemonBgVariants,
   PokemonGenericObject,
   PokemonSpecies,
-  pokemonBgVariants,
 } from "@/api/constant";
 import { pokemonGet, pokemonGetById } from "@/api/pokemon";
 import { pokemonSpeciesGetByPokemon } from "@/api/pokemon-species";
 import Layout from "@/components/Layout";
 import { LeftArrowIcon } from "@/components/LeftArrowIcon";
-import { PokemonSprite } from "@/components/PokemonSprite";
+import { PokemonSprite } from "@/components/Pokemon/PokemonSprite";
 import { RightArrowIcon } from "@/components/RightArrowIcon";
+import { Metadata, ResolvingMetadata } from "next";
+
+export async function generateMetadata(
+  { params }: { params: { id: string } },
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  // read route params
+  const id = params.id;
+
+  // fetch data
+  const data: Pokemon = await pokemonGetById(Number(params.id)).then((res) => {
+    return res;
+  });
+
+  const nameArr = data.name.split("-");
+  let name = "";
+  nameArr.forEach((element) => {
+    name += `${element[0].toUpperCase()}${element.slice(1)} `;
+  });
+
+  return {
+    title: `${name}`,
+    openGraph: {
+      images: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`,
+    },
+  };
+}
 
 export async function generateStaticParams() {
   const list = await pokemonGet({ offset: 0 }).then((res) => {
@@ -43,8 +70,8 @@ const Page = async ({ params }: { params: { id: string } }) => {
   return (
     <main className="flex w-full flex-col items-center justify-center ">
       <Layout className="!py-16 ">
-        <div className="border-themeSoftDark grid w-full grid-cols-8 items-center justify-between gap-y-0 rounded-2xl border-2 bg-primary">
-          <div className="border-themeSoftDark col-span-8 flex w-full justify-between border-b-2 px-8 py-3">
+        <div className="grid w-full grid-cols-8 items-center justify-between gap-y-0 rounded-2xl border-2 border-themeSoftDark bg-primary">
+          <div className="col-span-8 flex w-full justify-between border-b-2 border-themeSoftDark px-8 py-3">
             <h4 className="text-xl font-semibold">
               #{data.id} <span className="capitalize">{data.name},</span>{" "}
               {species.genera.find((i) => i.language.name === "en")?.genus}
@@ -55,7 +82,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
                 return (
                   <div
                     key={i}
-                    className={`mx-0.5 rounded-md px-2 py-1 text-center font-semibold uppercase ${pokemonBgVariants[pokemonType]} `}
+                    className={`mx-0.5 rounded-md px-2 py-1 text-center font-semibold uppercase ${PokemonBgVariants[pokemonType]} `}
                   >
                     <p>{pokemonType}</p>
                   </div>
@@ -66,7 +93,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
           <div className="relative col-span-3 m-4 flex flex-wrap bg-themeLight p-4">
             <PokemonSprite name={data.name} id={data.id} />
           </div>
-          <div className="border-themeSoftDark col-span-5 border-l-2 px-8 py-4">
+          <div className="col-span-5 border-l-2 border-themeSoftDark px-8 py-4">
             <div className="w-full pb-2 pt-2">
               <p>
                 {
@@ -117,7 +144,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
                         <span className="w-1/5 text-right">{baseStat} </span>
                       </div>
                       <div
-                        className={`bg-themeSoftDark min-h-full`}
+                        className={`min-h-full bg-themeSoftDark`}
                         style={{ width: barWidth }}
                       />
                     </div>

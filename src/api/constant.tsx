@@ -80,6 +80,9 @@ export interface Flavor {
 }
 
 export interface Item {
+  attributes: [PokemonGenericObject];
+  cost: number;
+  category: PokemonGenericObject;
   name: string;
   flavor_text_entries: [
     {
@@ -96,7 +99,7 @@ export interface Item {
   ];
 }
 
-export const pokemonBgVariants: { [index: string]: any } = {
+export const PokemonBgVariants: { [index: string]: any } = {
   normal: "bg-normal",
   fire: "bg-fire",
   water: "bg-water",
@@ -115,4 +118,15 @@ export const pokemonBgVariants: { [index: string]: any } = {
   dark: "bg-dark",
   steel: "bg-steel",
   fairy: "bg-fairy",
+};
+
+export const ItemAttribute: { [index: string]: any } = {
+  countable: "Has a count in the bag",
+  consumable: "Consumed when used",
+  "usable-overworld": "Usable outside battle",
+  "usable-in-battle": "Usable in battle",
+  holdable: "Can be held by a Pokémon",
+  "holdable-passive": "Works passively when held",
+  "holdable-active": "Usable by a Pokémon when held",
+  underground: "Appears in Sinnoh Underground",
 };
