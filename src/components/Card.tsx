@@ -18,11 +18,11 @@ export const Card = ({
 }) => {
   return (
     <div
-      className={`z-10 my-4 h-auto w-1/6 cursor-pointer shadow-custom ${className}`}
+      className={`z-10 my-4 h-auto w-1/3 cursor-pointer text-themeDark shadow-custom dark:text-themeLight md:w-1/4 lg:w-1/6 ${className}`}
     >
       <Link href={href}>
         <motion.div
-          className="border-themeSoftDark mx-auto w-[85%] rounded-2xl border-2 bg-primary pb-8 pt-4 shadow-custom"
+          className="dark:border-themeSoftLight mx-auto w-[85%] rounded-2xl border-2 border-themeSoftDark bg-themeLight pb-8 pt-4 shadow-custom dark:bg-themeDark"
           whileHover={{ scale: 1.1 }}
         >
           <div className="w-full">

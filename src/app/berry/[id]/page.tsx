@@ -52,7 +52,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
   return (
     <main className="flex w-full flex-col items-center justify-center ">
       <Layout className="!py-16 ">
-        <div className="grid w-full grid-cols-8 items-center justify-between gap-y-0 rounded-2xl border-2 border-themeSoftDark bg-primary">
+        <div className="grid w-full grid-cols-8 items-center justify-between gap-y-0 rounded-2xl border-2 border-themeSoftDark bg-themeLight">
           <div className="col-span-8 flex w-full justify-between border-b-2 border-themeSoftDark px-8 py-3">
             <h4 className="text-xl font-semibold">
               <span className="capitalize">{berry.name} Berry</span>{" "}
@@ -60,7 +60,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
           </div>
           <div className="col-span-3 m-4 flex flex-wrap bg-themeLight p-4">
             <Image
-              className="mx-auto w-2/3 bg-primary"
+              className="mx-auto w-2/3 bg-themeLight"
               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${berry.name}-berry.png`}
               alt={`${berry.name} sprite`}
               width={96}

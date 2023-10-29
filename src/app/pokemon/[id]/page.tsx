@@ -68,11 +68,11 @@ const Page = async ({ params }: { params: { id: string } }) => {
   // });
 
   return (
-    <main className="flex w-full flex-col items-center justify-center ">
+    <main className="flex w-full flex-col items-center justify-center text-justify text-themeDark dark:text-themeLight">
       <Layout className="!py-16 ">
-        <div className="grid w-full grid-cols-8 items-center justify-between gap-y-0 rounded-2xl border-2 border-themeSoftDark bg-primary">
-          <div className="col-span-8 flex w-full justify-between border-b-2 border-themeSoftDark px-8 py-3">
-            <h4 className="text-xl font-semibold">
+        <div className="dark:border-themeSoftLight grid w-full grid-cols-8 items-center justify-between gap-y-0 rounded-2xl border-2 border-themeSoftDark bg-themeLight dark:bg-themeDark">
+          <div className="dark:border-themeSoftLight col-span-8 flex w-full justify-between border-b-2 border-themeSoftDark px-8 py-3">
+            <h4 className="text-sm font-semibold md:text-lg lg:text-xl ">
               #{data.id} <span className="capitalize">{data.name},</span>{" "}
               {species.genera.find((i) => i.language.name === "en")?.genus}
             </h4>
@@ -90,10 +90,10 @@ const Page = async ({ params }: { params: { id: string } }) => {
               })}
             </div>
           </div>
-          <div className="relative col-span-3 m-4 flex flex-wrap bg-themeLight p-4">
+          <div className="relative col-span-8 m-4 flex flex-wrap bg-themeLight p-4 dark:bg-themeDark lg:col-span-3">
             <PokemonSprite name={data.name} id={data.id} />
           </div>
-          <div className="col-span-5 border-l-2 border-themeSoftDark px-8 py-4">
+          <div className="dark:border-themeSoftLight col-span-8 border-t-2 border-themeSoftDark px-8 py-4 lg:col-span-5 lg:border-l-2 lg:border-t-0">
             <div className="w-full pb-2 pt-2">
               <p>
                 {
@@ -103,21 +103,27 @@ const Page = async ({ params }: { params: { id: string } }) => {
                 }
               </p>
             </div>
-            <div className="flex w-full items-center justify-around pt-2 capitalize">
-              <p>
+            <div className="flex w-full flex-wrap items-center justify-around pt-2 text-center capitalize">
+              <p className="w-1/3">
                 {species.generation.name.split("-")[0]}{" "}
                 <span className="uppercase">
                   {species.generation.name.split("-")[1]}
                 </span>
               </p>
-              <p>Shape: {species.shape?.name || "Not Found"}</p>
-              <p>Habitat: {species.habitat?.name || "Not Found"}</p>
+              <p className="w-1/3">
+                Shape: {species.shape?.name || "Not Found"}
+              </p>
+              <p className="w-1/3">
+                Habitat: {species.habitat?.name || "Not Found"}
+              </p>
             </div>
-            <div className="flex w-full items-center justify-around pt-2">
-              <p>Weight: {data.weight / 10} kg</p>
-              <p>Height: {data.height / 10} m</p>
-              <p>Base Experience: {data.base_experience}</p>
-              <p>
+            <div className="flex w-full flex-wrap items-center justify-around pt-2 text-center">
+              <p className="w-1/2 p-2">Weight: {data.weight / 10} kg</p>
+              <p className="w-1/2 p-2">
+                Base Experience: {data.base_experience}
+              </p>
+              <p className="w-1/2 p-2">Height: {data.height / 10} m</p>
+              <p className="w-1/2 p-2">
                 Growth Rate:{" "}
                 <span className="capitalize">
                   {species.growth_rate.name.replace("-", " ")}
@@ -137,14 +143,14 @@ const Page = async ({ params }: { params: { id: string } }) => {
                       className="my-2 flex w-full capitalize first:uppercase"
                     >
                       <div
-                        className={`font-md flex w-1/3 justify-center px-2 py-1 text-left`}
+                        className={`font-md flex w-1/2 justify-center px-2 py-1 text-left lg:w-1/3`}
                       >
                         <span className="w-3/5">{pokemonStat}</span>
                         <span className="w-1/5 text-center">:</span>
                         <span className="w-1/5 text-right">{baseStat} </span>
                       </div>
                       <div
-                        className={`min-h-full bg-themeSoftDark`}
+                        className={`dark:bg-themeSoftLight min-h-full bg-themeSoftDark`}
                         style={{ width: barWidth }}
                       />
                     </div>
