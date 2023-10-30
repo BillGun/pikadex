@@ -14,7 +14,7 @@ const CustomLink = ({ href = "/", title = "", className = "" }) => {
       {title}
       <span
         className={`ease absolute -bottom-0.5 left-0 inline-block h-[1px] 
-      bg-themeDark transition-[width] duration-300 group-hover:w-full ${
+      bg-themeDark transition-[width] duration-300 group-hover:w-full dark:bg-themeLight ${
         pathname.includes(href) ? "w-full" : "w-0"
       }`}
       >
@@ -45,9 +45,9 @@ const CustomLinkMobile = ({
     >
       {title}
       <span
-        className={`bg-light ease absolute -bottom-0.5 left-0 inline-block h-[1px] 
+        className={`ease absolute -bottom-0.5 left-0 inline-block h-[1px] bg-themeLight 
       transition-[width] duration-300 group-hover:w-full dark:bg-themeDark ${
-        pathname === href ? "w-full" : "w-0"
+        pathname.includes(href) ? "w-full" : "w-0"
       }`}
       >
         &nbsp;
@@ -125,7 +125,6 @@ export const Navbar = () => {
           animate={{ scale: 1, opacity: 1 }}
         >
           <nav className="flex flex-col items-center justify-center">
-            <CustomLinkMobile href="/" title="Home" toggle={handleClick} />
             <CustomLinkMobile
               href="/pokemon"
               title="Pokémon"
@@ -136,6 +135,7 @@ export const Navbar = () => {
               title="Berries"
               toggle={handleClick}
             />
+            <CustomLinkMobile href="/item" title="Item" toggle={handleClick} />
           </nav>
           <nav className="mt-2 flex flex-wrap items-center justify-center">
             <button

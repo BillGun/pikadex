@@ -50,24 +50,24 @@ const Page = async ({ params }: { params: { id: string } }) => {
   });
 
   return (
-    <main className="flex w-full flex-col items-center justify-center ">
+    <main className="flex w-full flex-col items-center justify-center text-justify text-themeDark dark:text-themeLight">
       <Layout className="!py-16 ">
-        <div className="grid w-full grid-cols-8 items-center justify-between gap-y-0 rounded-2xl border-2 border-themeSoftDark bg-themeLight">
-          <div className="col-span-8 flex w-full justify-between border-b-2 border-themeSoftDark px-8 py-3">
+        <div className="grid w-full grid-cols-8 items-center justify-between gap-y-0 rounded-2xl border-2 border-themeSoftDark bg-themeLight dark:border-themeSoftLight dark:bg-themeDark">
+          <div className="col-span-8 flex w-full justify-between border-b-2 border-themeSoftDark px-8 py-3 dark:border-themeSoftLight">
             <h4 className="text-xl font-semibold">
               <span className="capitalize">{berry.name} Berry</span>{" "}
             </h4>
           </div>
-          <div className="col-span-3 m-4 flex flex-wrap bg-themeLight p-4">
+          <div className="col-span-8 m-4 flex flex-wrap p-4  lg:col-span-3">
             <Image
-              className="mx-auto w-2/3 bg-themeLight"
+              className="mx-auto w-2/3"
               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${berry.name}-berry.png`}
               alt={`${berry.name} sprite`}
               width={96}
               height={96}
             />{" "}
           </div>
-          <div className="col-span-5 min-h-full border-l-2 border-themeSoftDark px-8 py-4">
+          <div className="col-span-8 min-h-full border-t-2 border-themeSoftDark px-8 py-4 dark:border-themeSoftLight lg:col-span-5 lg:border-l-2 lg:border-t-0">
             <div className="w-full pb-2 pt-2">
               <p>
                 {
@@ -105,7 +105,10 @@ const Page = async ({ params }: { params: { id: string } }) => {
             </div>
             <div className="h-[33vh] w-full pb-2 pt-2">
               <h3>Flavors: </h3>
-              <FlavorChart className="mx-auto !w-1/3" flavors={berry.flavors} />
+              <FlavorChart
+                className="mx-auto !w-3/4  lg:!w-1/3"
+                flavors={berry.flavors}
+              />
             </div>
           </div>
         </div>
