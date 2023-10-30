@@ -29,7 +29,7 @@ const CustomImage = ({
   };
   return (
     <Image
-      className="w-1/2 bg-primary"
+      className="dark:border-themeSoftLight w-1/2 border-2 border-themeSoftDark bg-themeLight dark:bg-themeSoftDark lg:w-full xl:w-1/2"
       src={getCustomUrl(imageType, id)}
       alt={`${name} sprite`}
       width={96}
@@ -46,11 +46,11 @@ export const PokemonSprite = ({ name, id }: { name: string; id: number }) => {
   };
   return (
     <>
-      <div className="absolute right-2 top-2 w-10 bg-primary">
+      <div className="absolute right-2 top-2 w-10 bg-themeLight dark:bg-themeDark">
         <Image
           src={shiny}
           alt="shiny icon toggle"
-          className="border-themeSoftDark w-full rounded-3xl border-2 bg-primary p-2"
+          className="dark:border-themeSoftLight w-full rounded-3xl border-2 border-themeSoftDark fill-themeDark p-2 dark:fill-themeLight"
           onClick={handleClick}
         />
       </div>

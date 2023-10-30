@@ -1,6 +1,7 @@
 // 'use client'
 
 import { pokemonGet } from "@/api/pokemon";
+import Layout from "@/components/Layout";
 import { List } from "@/components/Pokemon/List";
 import { Metadata } from "next";
 import { MouseEventHandler } from "react";
@@ -46,15 +47,16 @@ const Page = async () => {
   });
 
   return (
-    <div>
-      <div className="m-4 rounded-xl border-2 border-themeSoftDark bg-primary/50 p-4 shadow-custom">
-        Pokémon are the creatures that inhabit the world of the Pokémon games.
-        They can be caught using Pokéballs and trained by battling with other
-        Pokémon. Each Pokémon belongs to a specific species but may take on a
-        variant which makes it differ from other Pokémon of the same species,
-        such as base stats, available abilities and typings.
-      </div>
-      {/* <div>
+    <div className="bg-themeLight text-themeDark dark:bg-themeDark dark:text-themeLight">
+      <Layout className="!p-0 !pt-4">
+        <div className="border-themeSoftLight m-4 rounded-xl border-2 p-4 text-justify text-sm shadow-custom md:text-base">
+          Pokémon are the creatures that inhabit the world of the Pokémon games.
+          They can be caught using Pokéballs and trained by battling with other
+          Pokémon. Each Pokémon belongs to a specific species but may take on a
+          variant which makes it differ from other Pokémon of the same species,
+          such as base stats, available abilities and typings.
+        </div>
+        {/* <div>
         <Button text="Kanto" onClick={() => handleClick("Kanto")} region={region} />
         <Button text="Johto" onClick={() => handleClick("Johto")} region={region} />
         <Button text="Hoenn" onClick={() => handleClick("Hoenn")} region={region} />
@@ -66,7 +68,8 @@ const Page = async () => {
         <Button text="Hisui" onClick={() => handleClick("Hisui")} region={region} />
         <Button text="Paldea" onClick={() => handleClick("Paldea")} region={region} />
       </div> */}
-      <List initialList={list} />
+        <List initialList={list} />
+      </Layout>
     </div>
   );
 };

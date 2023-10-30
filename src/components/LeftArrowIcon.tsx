@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { LeftArrow } from "@/components/Icons";
 import { motion } from "framer-motion";
@@ -8,15 +8,15 @@ export const LeftArrowIcon = ({ id }: { id: string }) => {
   const router = useRouter();
   const handleLeftClick = () => {
     router.push(`/pokemon/${Number(id) - 1}`);
-  }
+  };
   return (
     <motion.div
-      className="w-16 absolute left-2 top-[50vh] cursor-pointer"
+      className="absolute left-2 top-[50vh] w-10 cursor-pointer "
       onClick={handleLeftClick}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
     >
-      <LeftArrow />
+      <LeftArrow className="fill-themeDark dark:fill-themeLight" />
     </motion.div>
-  )
-}
+  );
+};

@@ -1,12 +1,15 @@
 export default function Layout({
-  children, className = ''
+  children,
+  className = "",
 }: {
-  children: React.ReactNode,
-  className?: string
+  children: React.ReactNode;
+  className?: string;
 }) {
   return (
-    <main className={`w-full h-full inline-block bg-themeLight p-32 ${className}`}>
+    <main
+      className={`inline-block h-full w-full bg-themeLight p-8 dark:bg-themeDark md:p-24 lg:p-32 ${className}`}
+    >
       {children}
     </main>
-  )
+  );
 }
