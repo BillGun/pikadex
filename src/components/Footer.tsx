@@ -13,7 +13,7 @@ export default function Footer() {
             &#9825;
           </span>{" "}
           by&nbsp;
-          <Link href="">Me</Link>
+          <Link href="https://github.com/BillGun/">Me</Link>
         </div>
         <div className="flex items-center">
           <ReactIcon />

@@ -49,7 +49,7 @@ const Page = async () => {
   return (
     <div className="bg-themeLight text-themeDark dark:bg-themeDark dark:text-themeLight">
       <Layout className="!p-0 !pt-4">
-        <div className="border-themeSoftLight m-4 rounded-xl border-2 p-4 text-justify text-sm shadow-custom md:text-base">
+        <div className="m-4 rounded-xl border-2 border-themeSoftDark p-4 text-justify text-sm shadow-custom dark:border-themeSoftLight md:text-base">
           Pokémon are the creatures that inhabit the world of the Pokémon games.
           They can be caught using Pokéballs and trained by battling with other
           Pokémon. Each Pokémon belongs to a specific species but may take on a
